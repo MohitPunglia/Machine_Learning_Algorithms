@@ -104,3 +104,25 @@ param_grid = {
     "max_samples": max_samples,
 }
 print(param_grid)
+
+rf = RandomForestClassifier()
+
+# %%
+from sklearn.model_selection import GridSearchCV
+
+rf_grid = GridSearchCV(estimator=rf, param_grid=param_grid, cv=5, verbose=2)
+
+# %%
+rf_grid.fit(X_train, y_train)
+
+
+# %%
+rf_grid.best_params_
+
+# %%
+rf_grid.best_score_
+
+# %% [markdown]
+# Random Search CV
+#
+# It can be used for large dataset and large parameters
