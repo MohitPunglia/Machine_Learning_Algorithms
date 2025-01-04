@@ -117,12 +117,6 @@ rf_grid.fit(X_train, y_train)
 
 
 # %%
-rf_grid.best_params_
-
-# %%
-rf_grid.best_score_
-
-# %% [markdown]
 # Random Search CV
 #
 # It can be used for large dataset and large parameters
