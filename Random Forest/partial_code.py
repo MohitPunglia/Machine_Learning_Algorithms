@@ -76,3 +76,25 @@ from sklearn.tree import DecisionTreeClassifier
 clf1 = DecisionTreeClassifier()
 clf2 = DecisionTreeClassifier()
 clf3 = DecisionTreeClassifier()
+
+# %%
+# random row
+# clf1.fit(df1.iloc[:, 0:5], df1.iloc[:, -1])
+# clf2.fit(df2.iloc[:, 0:5], df2.iloc[:, -1])
+# clf3.fit(df3.iloc[:, 0:5], df3.iloc[:, -1])
+
+# random column
+clf1.fit(df1.iloc[:, 0:4], df1.iloc[:, -1])
+clf2.fit(df2.iloc[:, 0:4], df2.iloc[:, -1])
+clf3.fit(df3.iloc[:, 0:4], df3.iloc[:, -1])
+
+# %%
+from sklearn.tree import plot_tree
+
+plot_tree(clf1)
+
+# %%
+plot_tree(clf2)
+
+# %%
+plot_tree(clf3)
