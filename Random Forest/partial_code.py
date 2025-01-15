@@ -98,3 +98,31 @@ plot_tree(clf2)
 
 # %%
 plot_tree(clf3)
+
+
+# %%
+# Row predict
+# clf1.predict(
+#     np.array([-1.149951, -2.264081, 1.522788, -0.347368, 0.313946]).reshape(1, 5)
+# )
+# clf2.predict(
+#     np.array([-1.149951, -2.264081, 1.522788, -0.347368, 0.313946]).reshape(1, 5)
+# )
+# clf3.predict(
+#     np.array([-1.149951, -2.264081, 1.522788, -0.347368, 0.313946]).reshape(1, 5)
+# )
+
+# %%
+# Column predict
+clf1.predict(np.array([-0.357941, 1.577110, 0.823404, 0.337607]).reshape(1, 4))
+
+
+# %%
+clf2.predict(np.array([-0.357941, 1.577110, 0.823404, 0.337607]).reshape(1, 4))
+# clf3.predict(np.array([-0.357941, 1.577110, 0.823404, 0.337607]).reshape(1, 4))
+
+# %%
+clf3.predict(np.array([-0.357941, 1.577110, 0.823404, 0.337607]).reshape(1, 4))
+
+# %%
+
