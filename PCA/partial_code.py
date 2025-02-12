@@ -64,3 +64,50 @@ scaler = StandardScaler()
 # %%
 x_train_scaled = scaler.fit_transform(X_train)
 x_test_scaled = scaler.transform(X_test)
+
+
+# %% [markdown]
+# Applying PCA
+
+# %%
+from sklearn.decomposition import PCA
+
+pca = PCA(n_components=100)
+
+# %%
+x_train_pca = pca.fit_transform(x_train_scaled)
+x_test_pca = pca.transform(x_test_scaled)
+
+# %%
+x_train_pca.shape
+
+# %%
+knn_pca = KNeighborsClassifier()
+knn_pca.fit(x_train_pca, y_train)
+y_pred_pca = knn_pca.predict(x_test_pca)
+
+# %%
+accuracy_score(y_test, y_pred_pca)
+
+# %%
+for i in range(1, 785):
+    pca = PCA(n_components=i)
+    x_train_pca = pca.fit_transform(x_train_scaled)
+    x_test_pca = pca.transform(x_test_scaled)
+    knn_pca = KNeighborsClassifier()
+    knn_pca.fit(x_train_pca, y_train)
+    y_pred_pca = knn_pca.predict(x_test_pca)
+    print(i, accuracy_score(y_test, y_pred_pca))
+
+# %% [markdown]
+# Transforming data into 2D coordinates
+
+# %%
+pca = PCA(n_components=2)
+
+# %%
+x_train_pca = pca.fit_transform(x_train_scaled)
+x_test_pca = pca.transform(x_test_scaled)
+
+# %%
+x_train_pca.shape
