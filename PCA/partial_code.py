@@ -111,3 +111,45 @@ x_test_pca = pca.transform(x_test_scaled)
 
 # %%
 x_train_pca.shape
+
+
+# %%
+import plotly.express as px
+
+y_train_pca = y_train.astype(str)
+fig = px.scatter(x=x_train_pca[:, 0], y=x_train_pca[:, 1], color=y_train_pca)
+fig.show()
+
+# %% [markdown]
+# Transforming same data into 3D coordinate
+
+# %%
+pca = PCA(n_components=3)
+x_train_pca = pca.fit_transform(x_train_scaled)
+x_test_pca = pca.transform(x_test_scaled)
+
+# %%
+x_train_pca.shape
+
+# %%
+x_train_pca
+
+# %%
+import plotly.express as px
+
+y_train_pca = y_train.astype(str)
+fig = px.scatter_3d(
+    x=x_train_pca[:, 0], y=x_train_pca[:, 1], z=x_train_pca[:, 2], color=y_train_pca
+)
+fig.update_layout(margin=dict(l=20, r=20, t=20, b=20), paper_bgcolor="LightSteelBlue")
+fig.show()
+
+# %%
+# Eigen Values
+pca.explained_variance_
+
+# %%
+# Eigen Vectors
+pca.components_.shape
+
+# %%
