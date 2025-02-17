@@ -30,3 +30,41 @@ df = df.sample(40)
 
 # %%
 df.head()
+
+
+# %%
+import plotly.express as px
+
+fig = px.scatter_3d(df, x="feature1", y="feature2", z="feature3", color="target")
+fig.show()
+
+# %% [markdown]
+# 1.Applying Standard Scalling
+
+# %%
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+
+df.iloc[:, 0:3] = scaler.fit_transform(df.iloc[:, 0:3])
+
+
+# %% [markdown]
+# 2. Find Covariance Matrix
+#
+
+# %%
+covariance_matrix = np.cov([df.iloc[:, 0], df.iloc[:, 1], df.iloc[:, 2]])
+print(covariance_matrix)
+
+# %% [markdown]
+# 3. Finding EV and EVs
+
+# %%
+eigen_values, eigen_vectors = np.linalg.eig(covariance_matrix)
+
+# %%
+eigen_values, eigen_vectors
+
+# %% [markdown]
+# Plotting the graph
