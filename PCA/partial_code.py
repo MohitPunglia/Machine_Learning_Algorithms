@@ -130,3 +130,33 @@ ax.set_zlabel("z_values")
 plt.title("Eigenvectors")
 
 plt.show()
+
+# %% [markdown]
+# Converting into 2d 
+
+# %%
+pc = eigen_vectors[0:2]
+pc
+
+# %%
+transformed_df = np.dot(df.iloc[:, 0:3], pc.T)
+new_df = pd.DataFrame(transformed_df, columns=["PC1", "PC2"])
+new_df["target"] = df["target"].values
+new_df.head()
+
+# %%
+new_df["target"] = new_df["target"].astype("str")
+fig = px.scatter(
+    x=new_df["PC1"],
+    y=new_df["PC2"],
+    color=new_df["target"],
+    color_discrete_sequence=px.colors.qualitative.G10,
+)
+
+fig.update_traces(
+    marker=dict(size=12, line=dict(width=2, color="DarkSlateGrey")),
+    selector=dict(mode="markers"),
+)
+fig.show()
+
+# %%
