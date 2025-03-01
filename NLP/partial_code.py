@@ -74,3 +74,45 @@ for word in doc3:
         "---->",
         spacy.explain(word.tag_),
     )
+# %%
+doc4 = nlp("Let's visit St. Louis in the U.S. next year.")
+
+# %%
+for word in doc4:
+    print(
+        word.text,
+        "---->",
+        word.pos_,
+        "---->",
+        word.tag_,
+        "---->",
+        spacy.explain(word.tag_),
+    )
+
+# %%
+doc5 = nlp("India is a country in South Asia.")
+
+# %%
+for word in doc5:
+    print(
+        word.text,
+        "---->",
+        word.pos_,
+        "---->",
+        word.tag_,
+        "---->",
+        spacy.explain(word.tag_),
+    )
+
+# %%
+doc6 = nlp("Tesla to build a U.K. factory for $6 million")
+for word in doc6:
+    print(
+        word.text,
+        "---->",
+        word.pos_,
+        "---->",
+        word.tag_,
+        "---->",
+        spacy.explain(word.tag_),
+    )
