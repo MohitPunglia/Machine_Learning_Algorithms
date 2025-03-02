@@ -116,3 +116,24 @@ for word in doc6:
         "---->",
         spacy.explain(word.tag_),
     )
+# %%
+from spacy import displacy
+
+displacy.render(doc6, style="dep", jupyter=True, options={"distance": 110})
+
+# %%
+options = {
+    "distance": 110,
+    "compact": "True",
+    "color": "yellow",
+    "bg": "#09a3d5",
+    "font": "Times",
+}
+
+# %%
+display = displacy.render(doc6, style="dep", jupyter=True, options=options)
+
+# %%
+
+
+
