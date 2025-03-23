@@ -25,4 +25,4 @@ A curated collection of **machine learning algorithms implemented from scratch**
    ```bash
    git clone https://github.com/MohitPunglia/Machine_Learning_Algorithms.git
 
-   Test file
+   Test file, need to add links
